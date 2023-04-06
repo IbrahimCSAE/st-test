@@ -1,0 +1,7 @@
+streamlit_authenticator==0.1.5
+pandas
+numpy
+matplotlib
+pickle
+streamlit
+pathlib

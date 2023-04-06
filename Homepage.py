@@ -48,8 +48,9 @@ if authentication_status:
 
 
     # Loading the model
-    
-    loaded_model = pickle.load(open('C:/Users/Marwan/Desktop/Model/trained_model.sav', 'rb'))
+    model_path = Path(__file__).parent / "trained_model.sav"
+    with model_path.open("rb") as model_file:
+            loaded_model = pickle.load(model_file)
     authenticator.logout("Logout", "sidebar")
     # Create a function for prediction
     

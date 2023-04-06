@@ -35,7 +35,7 @@ with file_path.open("rb") as file:
         
 authenticator = stauth.Authenticate(names, usernames, hashed_passwords, "cookie_name", "abcdef", cookie_expiry_days=0)
     
-authentication_status, username = authenticator.login("Login", "main")
+name, authentication_status, username = authenticator.login("Login", "main")
     
 if authentication_status == False:
         st.error("Username/Password is incorrect")
@@ -106,6 +106,21 @@ if authentication_status:
         # Creating a button for Prediction
         
         if st.button('Heart Disease Result'):
+            # convert all the strings to numbers
+            age = int(age)
+            sex = int(sex)
+            cp = int(cp)
+            trestbps = int(trestbps)
+            chol = int(chol)
+            fbs = int(fbs)
+            restecg = int(restecg)
+            thalach = int(thalach)
+            exang = int(exang)
+            oldpeak = float(oldpeak)
+            slope = int(slope)
+            ca = int(ca)
+            thal = int(thal)
+            
             diagnosis = heart_prediction([age,sex,cp,trestbps,chol,fbs,restecg,thalach,exang,oldpeak,slope,ca,thal])
             
         st.success(diagnosis)
